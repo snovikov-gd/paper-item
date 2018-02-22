@@ -1,4 +1,9 @@
-<!--
+import { html } from '../polymer/polymer.js';
+import '../iron-flex-layout/iron-flex-layout.js';
+import { PaperItemBehavior } from './paper-item-behavior.js';
+import './paper-item-shared-styles.js';
+import { Polymer } from '../polymer/lib/legacy/polymer-fn.js';
+/**
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
@@ -6,14 +11,8 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="paper-item-behavior.html">
-<link rel="import" href="paper-item-shared-styles.html">
-
-<!--
+*/
+/**
 Material design: [Lists](https://www.google.com/design/spec/components/lists.html)
 
 `<paper-item>` is an interactive list item. By default, it is a horizontal flexbox.
@@ -81,10 +80,9 @@ This element has `role="listitem"` by default. Depending on usage, it may be mor
 @group Paper Elements
 @element paper-item
 @demo demo/index.html
--->
-
-<dom-module id="paper-item">
-  <template>
+*/
+Polymer({
+  _template: html`
     <style include="paper-item-shared-styles">
       :host {
         @apply --layout-horizontal;
@@ -95,15 +93,11 @@ This element has `role="listitem"` by default. Depending on usage, it may be mor
       }
     </style>
     <slot></slot>
-  </template>
+`,
 
-  <script>
-    Polymer({
-      is: 'paper-item',
+  is: 'paper-item',
 
-      behaviors: [
-        Polymer.PaperItemBehavior
-      ]
-    });
-  </script>
-</dom-module>
+  behaviors: [
+    PaperItemBehavior
+  ]
+});
